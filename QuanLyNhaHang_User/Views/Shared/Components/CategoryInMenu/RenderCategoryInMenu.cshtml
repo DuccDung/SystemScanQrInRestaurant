@@ -1,0 +1,6 @@
+﻿@model List<QuanLyNhaHang_User.Models.Category>
+
+@foreach (var category in Model)
+{
+    <div onclick="scrollToCategory(@category.CateId)" class="category-item">@category.TenLoaiSanPham</div>
+}

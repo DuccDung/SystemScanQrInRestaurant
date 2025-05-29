@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "Server_QR\\Server_QR.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "QuanLyNhaHang_User\\QuanLyNhaHang_User.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

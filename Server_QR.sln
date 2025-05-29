@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.35906.104 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server_QR", "Server_QR\Server_QR.csproj", "{462002D3-DD7D-4094-B5BA-0D7063EB7FF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuanLyNhaHang_User", "QuanLyNhaHang_User\QuanLyNhaHang_User.csproj", "{C27E1459-F018-4DF2-92BE-FB3A1E1A188F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{462002D3-DD7D-4094-B5BA-0D7063EB7FF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{462002D3-DD7D-4094-B5BA-0D7063EB7FF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{462002D3-DD7D-4094-B5BA-0D7063EB7FF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{462002D3-DD7D-4094-B5BA-0D7063EB7FF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C27E1459-F018-4DF2-92BE-FB3A1E1A188F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C27E1459-F018-4DF2-92BE-FB3A1E1A188F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C27E1459-F018-4DF2-92BE-FB3A1E1A188F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C27E1459-F018-4DF2-92BE-FB3A1E1A188F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {194C6015-117F-4EC1-94F1-63084841623B}
+	EndGlobalSection
+EndGlobal

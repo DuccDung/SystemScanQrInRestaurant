@@ -1,0 +1,96 @@
+﻿@model QuanLyNhaHang_User.Models.ProductOrderPageViewModel
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebQuanLyTuXa.styles.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="~/asset/css/base.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/asset/css/responsive.css" asp-append-version="true">
+    <link rel="stylesheet" type="text/css" href="btl.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/asset/css/productDetail.css" asp-append-version="true">
+    <title>Kính chào quý khách</title>
+</head>
+<body>
+    <form asp-controller="Home" asp-action="Order" method="post">
+        <div class="app__product product-detail">
+            <div class="container-fluid img-container bg-light p-0">
+                <img src="@Model.Product.PathPhoto"
+                     class="img-fluid"
+                     alt="Responsive image">
+            </div>
+            <div class="app__product-container">
+                <div class="container__productDetail">
+                    <div class="content-box">
+                        <div class="content-padding">
+                            <div class="component__item-buy-detail--name">@Model.Product.TenSanPham</div>
+                        </div>
+                        <div class="component__item-buy-detail--description"></div>
+                    </div>
+                    <div class="bottom-box">
+                        <div class="content-padding">
+                             @await Component.InvokeAsync("ProductCondition", new { ProductID = Model.Product.ProductId }) 
+                            <div class="note-section">
+                                <div class="parent_note">
+                                    <img src="/asset/img/imgWeb/note.svg" alt="note_icon" class="note_icon">
+                                    <label class="input__decreption">
+                                        <textarea name="OrderInfo.GhiChu" placeholder="Do you have a message for the restaurant?"></textarea>
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+        <div class="app__product-foodter">
+            <div class="content-padding box-cart">
+                <div class="d-flex justify-content-between align-items-center">
+                    <!-- Quantity Input -->
+                    <div class="input-group quantity-input">
+                        <button class="btn btn-outline-secondary" type="button" id="button-minus">-</button>
+                        <input type="text" value="@Model.Product.ProductId" hidden name="OrderInfo.ProductID">
+                        <input type="text" name="SoLuong" class="form-control text-center" value="1" id="quantity"
+                               aria-label="Quantity">
+                        <button class="btn btn-outline-secondary" type="button" id="button-plus">+</button>
+                    </div>
+                    <!-- Add to order button -->
+                    <button type="submit" class="btn btn-secondary btn-lg add-to-order">
+                        Add to order <br><span class="small" id="Productdetail-price">(@String.Format("{0:N0}", Model.Product.GiaTien)đ)</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+    <script>
+        window.onload = function () {
+            // Thêm lớp 'active' để chi tiết sản phẩm xuất hiện từ dưới lên
+            document.querySelector('.product-detail').classList.add('active');
+        };
+        // sử lý (+,-) số lượng
+            document.getElementById('button-plus').addEventListener('click', function () {
+                let quantityInput = document.getElementById('quantity');
+                let currentValue = parseInt(quantityInput.value);
+                quantityInput.value = currentValue + 1;
+                });
+
+            document.getElementById('button-minus').addEventListener('click', function () {
+                let quantityInput = document.getElementById('quantity');
+                let currentValue = parseInt(quantityInput.value);
+            if (currentValue > 1) {  // Ensure value doesn't go below 1
+                quantityInput.value = currentValue - 1;
+                    }
+                });
+    </script>
+
+</body>
+</html>

@@ -32,6 +32,39 @@ namespace QuanLyNhaHang_User.Sevices
             };
         }
 
+        public async Task<ResponseModel<RequestOrderDetail>> CheckOrderDetailExist(int userId, int orderId, int tableId, int productId)
+        {
+            var reponse =await client.GetAsync($"Orders/CheckOrderDetailExist?userId={userId}&orderId={orderId}&tableId={tableId}&productId={productId}");
+            if (reponse.IsSuccessStatusCode)
+            {
+                var orderDetail =await reponse.Content.ReadAsAsync<ResponseModel<RequestOrderDetail>>();
+                if (orderDetail.IsSussess)
+                {
+                    return orderDetail;
+                }
+            }
+            return new ResponseModel<RequestOrderDetail>
+            {
+                IsSussess = false,
+                Message = "Failed, product no exist."
+            };
+        }
+
+        public async Task<ResponseModel<Order>> CheckOrderOrInitOrder(int userId, int tableId)
+        {
+            var response =await client.GetAsync($"Orders/CheckOrderExistOrInitOrder?userId={userId}&tableId={tableId}");
+            if (response.IsSuccessStatusCode)
+            {
+                var order = await response.Content.ReadAsAsync<ResponseModel<Order>>();
+                return order;
+            }
+            return new ResponseModel<Order>
+            {
+                IsSussess = false,
+                Message = "404."
+            };
+        }
+
         public async Task<ResponseModel<Product>> GetProductById(int productId)
         {
             // This method is not implemented yet. api/Products/GetProductById?productId=1
@@ -100,6 +133,17 @@ namespace QuanLyNhaHang_User.Sevices
                 IsSussess = false,
                 Message = "Failed to initialize order."
             };
+        }
+
+        public Task<ResponseModel<RequestOrderDetail>> OrderDetailMore(int userId, int orderId, int productId, int quantity)
+        {
+
+            throw new NotImplementedException();
+        }
+
+        public Task<ResponseModel<RequestOrderDetail>> OrderDetailReduce(int userId, int orderId, int productId, int quantity)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<ResponseModel<User>> PostUserCreate(string nameUser)

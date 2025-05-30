@@ -73,10 +73,8 @@
 
     <script>
         window.onload = function () {
-            // Thêm lớp 'active' để chi tiết sản phẩm xuất hiện từ dưới lên
             document.querySelector('.product-detail').classList.add('active');
         };
-        // sử lý (+,-) số lượng
             document.getElementById('button-plus').addEventListener('click', function () {
                 let quantityInput = document.getElementById('quantity');
                 let currentValue = parseInt(quantityInput.value);

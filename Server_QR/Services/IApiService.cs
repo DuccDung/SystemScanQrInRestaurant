@@ -10,6 +10,10 @@ namespace Server_QR.Services
         Task<ResponseModel<Product>> GetProductById(int productId);
         Task<ResponseModel<ProductCondition>> GetProductConditionByProductId(int productId);
         Task<ResponseModel<DonHang>> InitializeOrder(int userId, int tableId);
+        Task<ResponseModel<DonHang>> CheckOrInitOrder(int userId, int tableId);
         Task<ResponseModel<ChiTietHoaDon>> AddOrderDetailInOrder(RequestOrderDetail requestOrderDetail);
+        Task<ResponseModel<RequestOrderDetail>> CheckOrderDetailExist(int userId , int orderId , int tableId , int productId);
+        Task<ResponseModel<RequestOrderDetail>> OrderDetailMore(int userId, int orderId , int productId , int quantiy);
+        Task<ResponseModel<RequestOrderDetail>> OrderDetailReduce(int userId, int orderId , int productId , int quantiy);
     }
 }

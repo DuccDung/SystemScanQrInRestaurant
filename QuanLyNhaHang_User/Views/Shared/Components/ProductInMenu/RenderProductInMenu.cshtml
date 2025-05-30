@@ -24,7 +24,7 @@
                         </td>
 
                         <td class="menu__product-plus">
-                          <a asp-controller="Home" asp-action="ProductDetail" asp-route-ProductID="@product.ProductId" class="btn btn__primary-menu">+</a>
+                        @await Component.InvokeAsync("QuantitySelector", new { productId = product.ProductId })
                         </td>
                     </tr>
                 </table>

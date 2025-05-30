@@ -60,6 +60,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcUHJvZHVjdEluTWVudVxSZW5kZXJQcm9kdWN0SW5NZW51LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/laptrinhweb/Scan_Qr/Server_QR/QuanLyNhaHang_User/Views/Shared/Components/QuantitySelector/QuantityView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcUXVhbnRpdHlTZWxlY3RvclxRdWFudGl0eVZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/laptrinhweb/Scan_Qr/Server_QR/QuanLyNhaHang_User/Views/Shared/Components/QuantitySelector/QuantityViewOrderNull.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcUXVhbnRpdHlTZWxlY3RvclxRdWFudGl0eVZpZXdPcmRlck51bGwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/laptrinhweb/Scan_Qr/Server_QR/QuanLyNhaHang_User/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

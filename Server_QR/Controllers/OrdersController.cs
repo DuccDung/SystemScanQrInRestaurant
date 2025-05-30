@@ -44,6 +44,47 @@ namespace Server_QR.Controllers
                 return BadRequest(response.Message);
             }
         }
+        [HttpGet]
+        [Route("CheckOrderDetailExist")]
+        public async Task<IActionResult> CheckOrderDetailExist(int userId, int orderId, int tableId , int productId)
+        {
+            return Ok(await _apiService.CheckOrderDetailExist(userId, orderId, tableId , productId));
+        }
 
+        [HttpGet]
+        [Route("CheckOrderExistOrInitOrder")]
+        public async Task<IActionResult> CheckOrderExistOrInitOrder(int userId, int tableId)
+        {
+            return Ok(await _apiService.CheckOrInitOrder(userId, tableId));
+        }
+
+        [HttpGet]
+        [Route("OrderDetailMore")]
+        public async Task<IActionResult> OrderDetailMore(int userId, int orderId, int productId, int quantiy)
+        {
+            var response = await _apiService.OrderDetailMore(userId, orderId, productId, quantiy);
+            if (response.IsSussess)
+            {
+                return Ok(response);
+            }
+            else
+            {
+                return BadRequest(response.Message);
+            }
+        }
+        [HttpGet]
+        [Route("OrderDetailReduce")]
+        public async Task<IActionResult> OrderDetailReduce(int userId, int orderId, int productId, int quantiy)
+        {
+            var response = await _apiService.OrderDetailReduce(userId, orderId, productId, quantiy);
+            if (response.IsSussess)
+            {
+                return Ok(response);
+            }
+            else
+            {
+                return BadRequest(response.Message);
+            }
+        }
     }
 }

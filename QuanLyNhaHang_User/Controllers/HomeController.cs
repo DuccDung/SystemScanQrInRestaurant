@@ -47,7 +47,7 @@ namespace QuanLyNhaHang_User.Controllers
                 HttpContext.Session.SetInt32("userId", result.Data.KhId);
                 HttpContext.Session.SetString("userName", result.Data.TenKhachHang);
 
-                var order = await _apiService.InitializeOrder(result.Data.KhId, tableId);
+                var order = await _apiService.CheckOrderOrInitOrder(result.Data.KhId, tableId);
                 if (order.Data != null)
                 {
                     HttpContext.Session.SetInt32("orderId", order.Data.DhId);
@@ -105,7 +105,6 @@ namespace QuanLyNhaHang_User.Controllers
         {
             return View();
         }
-
         [HttpPost]
         public async Task<IActionResult> Order(ProductOrderPageViewModel productOrderPageViewModel)
         {
@@ -120,13 +119,13 @@ namespace QuanLyNhaHang_User.Controllers
             if (response.IsSussess)
             {
                 _logger.LogInformation("Order detail added successfully for Product ID: {ProductId}", productOrderPageViewModel.OrderInfo.ProductID);
-                return RedirectToAction("Service", "Home");
+                return RedirectToAction("Menu", "Home");
             }
             else
             {
                 _logger.LogError("Failed to add order detail for Product ID: {ProductId}. Error: {ErrorMessage}", productOrderPageViewModel.OrderInfo.ProductID, response.Message);
                 ModelState.AddModelError("", "Failed to add order detail. Please try again.");
-                return View();
+                return BadRequest("Null productId");
             }
         }
         public IActionResult Index()

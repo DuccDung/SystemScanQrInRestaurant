@@ -67,3 +67,4 @@ D:\laptrinhweb\Scan_Qr\Server_QR\QuanLyNhaHang_User\bin\Debug\net8.0\Newtonsoft.
 D:\laptrinhweb\Scan_Qr\Server_QR\QuanLyNhaHang_User\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
 D:\laptrinhweb\Scan_Qr\Server_QR\QuanLyNhaHang_User\obj\Debug\net8.0\QuanLyNhaHang_User.csproj.AssemblyReference.cache
 D:\laptrinhweb\Scan_Qr\Server_QR\QuanLyNhaHang_User\obj\Debug\net8.0\QuanLyNh.08F374B0.Up2Date
+D:\laptrinhweb\Scan_Qr\Server_QR\QuanLyNhaHang_User\obj\Debug\net8.0\QuanLyNhaHang_User.sourcelink.json

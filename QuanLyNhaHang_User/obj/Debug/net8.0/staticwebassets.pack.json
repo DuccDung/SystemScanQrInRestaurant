@@ -12845,6 +12845,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\laptrinhweb\\Scan_Qr\\Server_QR\\QuanLyNhaHang_User\\wwwroot\\js\\productInMenu.js",
+      "PackagePath": "staticwebassets\\js\\productInMenu.js"
+    },
+    {
       "Id": "D:\\laptrinhweb\\Scan_Qr\\Server_QR\\QuanLyNhaHang_User\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

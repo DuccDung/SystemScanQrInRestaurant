@@ -1,0 +1,10 @@
+﻿@model QuantitySelectorViewModel
+<div class="ComponentProduct__quantity-selector">
+    <form asp-controller="ChiTietHoaDons" asp-action="Decrease" method="post" id="quantityForm">
+        <button type="button" class="quantity-btn decrease-btn" data-product-id="@Model.ProductId">−</button>
+        <input type="number" name="Soluong" value="@Model.Quantity" class="quantity-input soluongInput">
+        <input type="hidden" name="ProductId" value="@Model.ProductId" />
+        <input type="hidden" name="DhId" value="@Model.OrderId" />
+        <button type="button" class="quantity-btn increase-btn" data-product-id="@Model.ProductId">+</button>
+    </form>
+</div>

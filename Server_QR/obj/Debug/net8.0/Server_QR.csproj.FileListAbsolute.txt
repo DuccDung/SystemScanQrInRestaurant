@@ -344,3 +344,4 @@ D:\laptrinhweb\Scan_Qr\Server_QR\Server_QR\obj\Debug\net8.0\refint\Server_QR.dll
 D:\laptrinhweb\Scan_Qr\Server_QR\Server_QR\obj\Debug\net8.0\Server_QR.pdb
 D:\laptrinhweb\Scan_Qr\Server_QR\Server_QR\obj\Debug\net8.0\Server_QR.genruntimeconfig.cache
 D:\laptrinhweb\Scan_Qr\Server_QR\Server_QR\obj\Debug\net8.0\ref\Server_QR.dll
+D:\laptrinhweb\Scan_Qr\Server_QR\Server_QR\obj\Debug\net8.0\Server_QR.sourcelink.json

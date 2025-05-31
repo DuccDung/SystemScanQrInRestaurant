@@ -1,19 +1,83 @@
-document.querySelectorAll('.menu_scroll_link').forEach(item => {
-    item.addEventListener('click', function() {
-        // Tìm menu cấp 2 liên quan
-        const submenu = this.nextElementSibling;
-        
-        // Kiểm tra nếu menu cấp 2 tồn tại và là danh sách con
-        if (submenu && submenu.classList.contains('sidebar_menu_lv2')) {
-            // Toggle lớp 'open' để thả xuống hoặc ẩn đi
-            submenu.classList.toggle('open');
+
+//$(document).ready(function () {
+//    // Bắt sự kiện khi lướt trang
+//    $(window).on("scroll", function () {
+//        $('.container__menu').each(function () {
+//            var category = $(this);
+//            var offsetTop = category.offset().top;
+//            var scrollPosition = $(window).scrollTop();
+//            var categoryName = category.find('.label-container').text().trim();
+
+//            // Kiểm tra nếu danh mục này ở vị trí gần trên cùng màn hình
+//            if (scrollPosition >= offsetTop - 50) {
+//                $('.category-item').removeClass('active');
+//                $('.category-item').each(function () {
+//                    if ($(this).text().trim() === categoryName) {
+//                        $(this).addClass('active');
+//                        // Di chuyển danh mục lên đầu
+//                        var categoryNav = $('.menu__category-nav');
+//                        $(this).prependTo(categoryNav);
+//                    }
+//                });
+//            }
+//        });
+//    });
+//});
+
+$(".increase-btn").on('click', function (event) {
+    event.preventDefault();
+
+    var quantityInput = $(this).closest('form').find('.quantityInput');
+    var quantity = parseInt(quantityInput.val());
+    var productId = $(this).data('product-id');
+    var orderId = $(this).closest('form').find('input[name="orderId"]').val();
+
+    $.ajax({
+        url: '/Home/Increase',
+        type: 'POST',
+        data: {
+            quantity: quantity,
+            productId: productId,
+            orderId: orderId
+        },
+        success: function (response) {
+            if (response.error) {
+                console.error(response.error);
+            } else {
+                quantityInput.val(response.newQuantity);
+            }
+        },
+        error: function (xhr, status, error) {
+            console.error('Có lỗi xảy ra:', error);
         }
     });
 });
-document.getElementById('menuSelect').addEventListener('change', function() {
-    var selectedValue = this.value;
-    if (selectedValue) {
-        // Điều hướng tới phần tử với id tương ứng
-        window.location.href = selectedValue;
-    }
+
+$(".decrease-btn").on('click', function (event) {
+    event.preventDefault();
+
+    var quantityInput = $(this).closest('form').find('.quantityInput');
+    var quantity = parseInt(quantityInput.val());
+    var productId = $(this).data('product-id');
+    var orderId = $(this).closest('form').find('input[name="orderId"]').val();
+
+    $.ajax({
+        url: '/Home/Reduce',
+        type: 'POST',
+        data: {
+            quantity: quantity,
+            productId: productId,
+            orderId: orderId
+        },
+        success: function (response) {
+            if (response.error) {
+                console.error(response.error);
+            } else {
+                quantityInput.val(response.newQuantity);
+            }
+        },
+        error: function (xhr, status, error) {
+            console.error('Có lỗi xảy ra:', error);
+        }
+    });
 });

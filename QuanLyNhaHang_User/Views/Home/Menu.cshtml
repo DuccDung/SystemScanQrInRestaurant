@@ -14,11 +14,11 @@
           rel="stylesheet">
     <link rel="stylesheet"
           href="~/asset/font/fontawesome-free-6.5.2-web/fontawesome-free-6.5.2-web/css/all.min.css">
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="~/asset/css/base.css" asp-append-version="true">
     <link rel="stylesheet" href="~/asset/css/responsive.css" asp-append-version="true">
     <link rel="stylesheet" type="text/css" href="btl.css">
-    <link rel="stylesheet" href="~/QuanLyNhaHang_User.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/QuanLyNhaHang_User.styles.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/asset/css/menu.css" asp-append-version="true">
     <title>Kính chào quý khách</title>
 </head>
@@ -57,33 +57,7 @@
             </div>
         </div>
     </div>
-    <script>
-        $(document).ready(function () {
-            // Bắt sự kiện khi lướt trang
-            $(window).on("scroll", function () {
-                $('.container__menu').each(function () {
-                    var category = $(this);
-                    var offsetTop = category.offset().top;
-                    var scrollPosition = $(window).scrollTop();
-                    var categoryName = category.find('.label-container').text().trim();
-
-                    // Kiểm tra nếu danh mục này ở vị trí gần trên cùng màn hình
-                    if (scrollPosition >= offsetTop - 50) {
-                        $('.category-item').removeClass('active');
-                        $('.category-item').each(function () {
-                            if ($(this).text().trim() === categoryName) {
-                                $(this).addClass('active');
-                                // Di chuyển danh mục lên đầu
-                                var categoryNav = $('.menu__category-nav');
-                                $(this).prependTo(categoryNav);
-                            }
-                        });
-                    }
-                });
-            });
-        });
-
-    </script>
+    <script src="~/asset/js/menu_home.js" asp-append-version="true"></script>
 </body>
 
 </html>

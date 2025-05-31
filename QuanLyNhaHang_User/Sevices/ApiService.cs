@@ -135,15 +135,42 @@ namespace QuanLyNhaHang_User.Sevices
             };
         }
 
-        public Task<ResponseModel<RequestOrderDetail>> OrderDetailMore(int userId, int orderId, int productId, int quantity)
+        public async Task<ResponseModel<RequestOrderDetail>> OrderDetailMore(int userId, int orderId, int productId, int quantity)
         {
-
-            throw new NotImplementedException();
+            var response = await client.GetAsync($"Orders/OrderDetailMore?userId={userId}&orderId={orderId}&productId={productId}&quantiy={quantity}");
+            if (response.IsSuccessStatusCode)
+            {
+                var orderDetail = await response.Content.ReadAsAsync<ResponseModel<RequestOrderDetail>>();
+                return orderDetail;
+                
+            }
+            else
+            {
+                return new ResponseModel<RequestOrderDetail>
+                {
+                    IsSussess = false,
+                    Message = "Fail, no more quantity in order detail! "
+                };
+            }
         }
 
-        public Task<ResponseModel<RequestOrderDetail>> OrderDetailReduce(int userId, int orderId, int productId, int quantity)
+        public async Task<ResponseModel<RequestOrderDetail>> OrderDetailReduce(int userId, int orderId, int productId, int quantity)
         {
-            throw new NotImplementedException();
+            var response = await client.GetAsync($"Orders/OrderDetailReduce?userId={userId}&orderId={orderId}&productId={productId}&quantiy={quantity}");
+            if (response.IsSuccessStatusCode)
+            {
+                var orderDetail =await response.Content.ReadAsAsync<ResponseModel<RequestOrderDetail>>();
+                return orderDetail;
+            }
+            else
+            {
+                return new ResponseModel<RequestOrderDetail>
+                {
+                    IsSussess = false,
+                    Message = "Fail, no reduce quantity in order detail!"
+                };
+            }
+
         }
 
         public async Task<ResponseModel<User>> PostUserCreate(string nameUser)

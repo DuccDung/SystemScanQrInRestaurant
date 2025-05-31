@@ -237,14 +237,20 @@ namespace Server_QR.Services
             }
             else
             {
-                ChiTietHoaDon newOrderDetail = new ChiTietHoaDon
+                ResponseModel<RequestOrderDetail> requestOrderDetailResponse1 = new ResponseModel<RequestOrderDetail>
                 {
-                    DhId = orderId,
-                    ProductId = productId,
-                    SoLuong = quantiy,
-                    ThanhTien = quantiy * (await _context.Products.Where(p => p.ProductId == productId).Select(p => p.GiaTien).FirstOrDefaultAsync()),
+                    IsSussess = false,
+                    Message = "Order detail updated fail.",
+                    Data = new RequestOrderDetail
+                    {
+                        DhId = orderId,
+                        ProductId = productId,
+                        SoLuong = orderDetail?.SoLuong ?? quantiy,
+                        ThanhTien = orderDetail?.ThanhTien ?? (quantiy * (await _context.Products.Where(p => p.ProductId == productId).Select(p => p.GiaTien).FirstOrDefaultAsync())),
+                        Ghichu = orderDetail?.Ghichu
+                    }
                 };
-                await _context.ChiTietHoaDons.AddAsync(newOrderDetail);
+                return requestOrderDetailResponse1;
             }
             await _context.SaveChangesAsync();
 

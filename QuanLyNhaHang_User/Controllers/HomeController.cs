@@ -132,5 +132,35 @@ namespace QuanLyNhaHang_User.Controllers
         {
             return View();
         }
+        public async Task<IActionResult> Increase(int quantity , int productId , int orderId)
+        {
+            var response =await _apiService.OrderDetailMore(HttpContext.Session.GetInt32("userId") ?? 0, HttpContext.Session.GetInt32("orderId") ?? 0, productId, 1);
+            if (response.IsSussess && response.Data != null)
+            {
+                _logger.LogInformation("Increased quantity for Product ID: {ProductId} to {Quantity}", productId, quantity);
+                return Json(new { success = true, newQuantity = response.Data.SoLuong});
+            }
+            else
+            {
+                _logger.LogError("Failed to increase quantity for Product ID: {ProductId}. Error: {ErrorMessage}", productId, response.Message);
+                ModelState.AddModelError("", "Failed to increase quantity. Please try again.");
+                return BadRequest("Null productId");
+            }
+        }
+        public async Task<IActionResult> Reduce(int quantity, int productId, int orderId)
+        {
+            var response = await _apiService.OrderDetailReduce(HttpContext.Session.GetInt32("userId") ?? 0, HttpContext.Session.GetInt32("orderId") ?? 0, productId, 1);
+            if (response.IsSussess && response.Data != null)
+            {
+                _logger.LogInformation("Reduced quantity for Product ID: {ProductId} to {Quantity}", productId, quantity);
+                return Json(new { success = true, newQuantity = response.Data.SoLuong });
+            }
+            else
+            {
+                _logger.LogError("Failed to reduce quantity for Product ID: {ProductId}. Error: {ErrorMessage}", productId, response.Message);
+                ModelState.AddModelError("", "Failed to reduce quantity. Please try again.");
+                return BadRequest("Null productId");
+            }
+        }
     }
 }

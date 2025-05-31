@@ -57,7 +57,7 @@
                     <div class="input-group quantity-input">
                         <button class="btn btn-outline-secondary" type="button" id="button-minus">-</button>
                         <input type="text" value="@Model.Product.ProductId" hidden name="OrderInfo.ProductID">
-                        <input type="text" name="SoLuong" class="form-control text-center" value="1" id="quantity"
+                        <input type="number" name="OrderInfo.SoLuong" class="form-control text-center" value="1" id="quantity"
                                aria-label="Quantity">
                         <button class="btn btn-outline-secondary" type="button" id="button-plus">+</button>
                     </div>
@@ -89,6 +89,6 @@
                     }
                 });
     </script>
-
+  
 </body>
 </html>

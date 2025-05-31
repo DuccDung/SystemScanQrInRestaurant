@@ -17,7 +17,7 @@ namespace QuanLyNhaHang_User.Sevices
 
         public async Task<ResponseModel<RequestOrderDetail>> AddOrderDetailOnOrder(RequestOrderDetail requestOrderDetail)
         {
-            var response = await client.PostAsync("Orders/AddOrderDetailInOrder" ,JsonContent.Create(requestOrderDetail));
+            var response = await client.PostAsync("Orders/AddOrderDetailInOrder", JsonContent.Create(requestOrderDetail));
             if (response.IsSuccessStatusCode)
             {
                 var orderDetail = await response.Content.ReadAsAsync<ResponseModel<RequestOrderDetail>>();
@@ -34,10 +34,10 @@ namespace QuanLyNhaHang_User.Sevices
 
         public async Task<ResponseModel<RequestOrderDetail>> CheckOrderDetailExist(int userId, int orderId, int tableId, int productId)
         {
-            var reponse =await client.GetAsync($"Orders/CheckOrderDetailExist?userId={userId}&orderId={orderId}&tableId={tableId}&productId={productId}");
+            var reponse = await client.GetAsync($"Orders/CheckOrderDetailExist?userId={userId}&orderId={orderId}&tableId={tableId}&productId={productId}");
             if (reponse.IsSuccessStatusCode)
             {
-                var orderDetail =await reponse.Content.ReadAsAsync<ResponseModel<RequestOrderDetail>>();
+                var orderDetail = await reponse.Content.ReadAsAsync<ResponseModel<RequestOrderDetail>>();
                 if (orderDetail.IsSussess)
                 {
                     return orderDetail;
@@ -52,7 +52,7 @@ namespace QuanLyNhaHang_User.Sevices
 
         public async Task<ResponseModel<Order>> CheckOrderOrInitOrder(int userId, int tableId)
         {
-            var response =await client.GetAsync($"Orders/CheckOrderExistOrInitOrder?userId={userId}&tableId={tableId}");
+            var response = await client.GetAsync($"Orders/CheckOrderExistOrInitOrder?userId={userId}&tableId={tableId}");
             if (response.IsSuccessStatusCode)
             {
                 var order = await response.Content.ReadAsAsync<ResponseModel<Order>>();
@@ -63,6 +63,40 @@ namespace QuanLyNhaHang_User.Sevices
                 IsSussess = false,
                 Message = "404."
             };
+        }
+
+        public async Task<ResponseModel<int>> CountOrderDetailInOrder(int orderId)
+        {
+            var response = await client.GetAsync($"Orders/CountOrderDetailInOrder?orderId={orderId}");
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadAsAsync<ResponseModel<int>>();
+            }
+            else
+            {
+                return new ResponseModel<int>
+                {
+                    IsSussess = false,
+                    Message = "Failed to delete order detail."
+                };
+            }
+        }
+
+        public async Task<ResponseModel<bool>> DeleteOrderDetail(int orderId, int productId)
+        {
+            var response = await client.DeleteAsync($"Orders/DeleteOrderDetail?orderId={orderId}&productId={productId}");
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadAsAsync<ResponseModel<bool>>();
+            }
+            else
+            {
+                return new ResponseModel<bool>
+                {
+                    IsSussess = false,
+                    Message = "Failed to delete order detail."
+                };
+            }
         }
 
         public async Task<ResponseModel<Product>> GetProductById(int productId)
@@ -86,10 +120,10 @@ namespace QuanLyNhaHang_User.Sevices
 
         public async Task<ResponseModel<ProductCondition>> GetProductConditionByProductId(int productId)
         {
-            var response =await client.GetAsync($"Products/GetProductConditionByProductId?productId={productId}");
+            var response = await client.GetAsync($"Products/GetProductConditionByProductId?productId={productId}");
             if (response.IsSuccessStatusCode)
             {
-                var conditions =await response.Content.ReadAsAsync<ResponseModel<ProductCondition>>();
+                var conditions = await response.Content.ReadAsAsync<ResponseModel<ProductCondition>>();
                 if (conditions.DataList != null)
                 {
                     return conditions;
@@ -142,7 +176,7 @@ namespace QuanLyNhaHang_User.Sevices
             {
                 var orderDetail = await response.Content.ReadAsAsync<ResponseModel<RequestOrderDetail>>();
                 return orderDetail;
-                
+
             }
             else
             {
@@ -159,7 +193,7 @@ namespace QuanLyNhaHang_User.Sevices
             var response = await client.GetAsync($"Orders/OrderDetailReduce?userId={userId}&orderId={orderId}&productId={productId}&quantiy={quantity}");
             if (response.IsSuccessStatusCode)
             {
-                var orderDetail =await response.Content.ReadAsAsync<ResponseModel<RequestOrderDetail>>();
+                var orderDetail = await response.Content.ReadAsAsync<ResponseModel<RequestOrderDetail>>();
                 return orderDetail;
             }
             else

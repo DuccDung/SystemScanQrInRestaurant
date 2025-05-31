@@ -15,5 +15,8 @@ namespace QuanLyNhaHang_User.Sevices
         Task<ResponseModel<RequestOrderDetail>> CheckOrderDetailExist(int userId, int orderId, int tableId , int productId);
         Task<ResponseModel<RequestOrderDetail>> OrderDetailMore(int userId, int orderId, int productId, int quantity);
         Task<ResponseModel<RequestOrderDetail>> OrderDetailReduce(int userId, int orderId, int productId, int quantity);
+
+        Task<ResponseModel<bool>> DeleteOrderDetail(int orderId, int productId);
+        Task<ResponseModel<int>> CountOrderDetailInOrder(int orderId);
     }
 }

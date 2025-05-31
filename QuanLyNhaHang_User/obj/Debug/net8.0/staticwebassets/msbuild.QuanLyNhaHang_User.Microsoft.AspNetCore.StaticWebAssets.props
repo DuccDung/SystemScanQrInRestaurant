@@ -40062,8 +40062,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>laejp56zbz</Fingerprint>
-      <Integrity>4yM4WDO94qa4JJBlR7MgrnM/ikpGtN13X7pNS05kJzs=</Integrity>
+      <Fingerprint>obxfhlpgpo</Fingerprint>
+      <Integrity>dAvEF8h0Rz5v+FIMljCT96EPGXPYtpayzbwzkmpJF2g=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\asset\js\menu_home.js'))</OriginalItemSpec>

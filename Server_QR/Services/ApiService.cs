@@ -34,7 +34,7 @@ namespace Server_QR.Services
 
         public async Task<ResponseModel<DonHang>> CheckOrInitOrder(int userId, int tableId)
         {
-            var order =await _context.DonHangs
+            var order = await _context.DonHangs
                 .Where(o => o.KhId == userId && o.BanId == tableId && o.TrangThai == false)
                 .FirstOrDefaultAsync();
             if (order != null)
@@ -69,7 +69,7 @@ namespace Server_QR.Services
             }
         }
 
-        public async Task<ResponseModel<RequestOrderDetail>> CheckOrderDetailExist(int userId, int orderId, int tableId , int productId)
+        public async Task<ResponseModel<RequestOrderDetail>> CheckOrderDetailExist(int userId, int orderId, int tableId, int productId)
         {
             // Check if the order detail exists for the given userId, orderId, and tableId
             var orderDetail = await _context.ChiTietHoaDons
@@ -77,7 +77,7 @@ namespace Server_QR.Services
                  .Include(c => c.Dh).Where(c => c.Dh.BanId == tableId && c.Dh.KhId == userId)
                  .Include(c => c.Product).Where(c => c.ProductId == productId)
                  .FirstOrDefaultAsync();
-            if(orderDetail != null)
+            if (orderDetail != null)
             {
                 ResponseModel<RequestOrderDetail> responseModel = new ResponseModel<RequestOrderDetail>()
                 {
@@ -295,6 +295,45 @@ namespace Server_QR.Services
                 }
             };
             return requestOrderDetailResponse;
+        }
+
+        public async Task<ResponseModel<bool>> DeleteOrderDetail(int orderId, int productId)
+        {
+            var record = await _context.ChiTietHoaDons
+                .Where(x => x.DhId == orderId && x.ProductId == productId)
+                .FirstOrDefaultAsync();
+
+            if (record != null)
+            {
+                _context.ChiTietHoaDons.Remove(record);
+                await _context.SaveChangesAsync();
+                return new ResponseModel<bool>
+                {
+                    IsSussess = true,
+                    Message = "Order detail deleted successfully.",
+                    Data = true
+                };
+            }
+
+            return new ResponseModel<bool>
+            {
+                IsSussess = false,
+                Message = "Order detail not found.",
+                Data = false
+            };
+        }
+
+      public async Task<ResponseModel<int>> CountOrderDetailInOrder(int orderId)
+        {
+            var count = await _context.ChiTietHoaDons
+                .Where(x => x.DhId == orderId)
+                .CountAsync();
+            return new ResponseModel<int>
+            {
+                IsSussess = true,
+                Message = "Count retrieved successfully.",
+                Data = count
+            };
         }
     }
 }

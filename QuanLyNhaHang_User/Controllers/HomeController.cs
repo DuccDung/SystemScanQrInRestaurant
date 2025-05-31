@@ -162,5 +162,16 @@ namespace QuanLyNhaHang_User.Controllers
                 return BadRequest("Null productId");
             }
         }
+        [HttpPost]
+        public async Task<IActionResult> GetProductPartial(int productId)
+        {
+            var isOrderDetailRemove =await _apiService.DeleteOrderDetail(HttpContext.Session.GetInt32("orderId") ?? 0, productId);
+            if(isOrderDetailRemove.IsSussess && isOrderDetailRemove.Data == true)
+            {
+                return PartialView("ButtonAddOrderDetailPartialView", productId);
+            }
+            return Json(new { success = false, message = "Failed to remove order detail." });
+        }
+
     }
 }

@@ -69,6 +69,43 @@
   },
   {
     "ContainingType": "Server_QR.Controllers.OrdersController",
+    "Method": "CountOrderDetailInOrder",
+    "RelativePath": "api/Orders/CountOrderDetailInOrder",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Server_QR.Controllers.OrdersController",
+    "Method": "DeleteOrderDetail",
+    "RelativePath": "api/Orders/DeleteOrderDetail",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "productId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Server_QR.Controllers.OrdersController",
     "Method": "InitializeOrder",
     "RelativePath": "api/Orders/InitializeOrder",
     "HttpMethod": "GET",

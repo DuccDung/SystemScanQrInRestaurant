@@ -8901,6 +8901,10 @@
       "PackagePath": "staticwebassets\\asset\\js\\IndexScroll.js"
     },
     {
+      "Id": "D:\\laptrinhweb\\Scan_Qr\\Server_QR\\QuanLyNhaHang_User\\wwwroot\\asset\\js\\SearchProductInMenu.js",
+      "PackagePath": "staticwebassets\\asset\\js\\SearchProductInMenu.js"
+    },
+    {
       "Id": "D:\\laptrinhweb\\Scan_Qr\\Server_QR\\QuanLyNhaHang_User\\wwwroot\\asset\\js\\login_home.js",
       "PackagePath": "staticwebassets\\asset\\js\\login_home.js"
     },

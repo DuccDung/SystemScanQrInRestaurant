@@ -99,6 +99,23 @@ namespace QuanLyNhaHang_User.Sevices
             }
         }
 
+        public async Task<ResponseModel<Category>> GetAllCategorys()
+        {
+            var response = await client.GetAsync("Categorys/GetAllCategory");
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadAsAsync<ResponseModel<Category>>();
+            }
+            else
+            {
+                return new ResponseModel<Category>
+                {
+                    IsSussess = false,
+                    Message = "Failed to retrieve categories."
+                };
+            }
+        }
+
         public async Task<ResponseModel<Product>> GetProductById(int productId)
         {
             // This method is not implemented yet. api/Products/GetProductById?productId=1
@@ -221,6 +238,24 @@ namespace QuanLyNhaHang_User.Sevices
                 {
                     IsSussess = false,
                     Message = "Failed to create user."
+                };
+            }
+        }
+
+        public async Task<ResponseModel<Product>> SearchProductByName(string productName)
+        {
+            var response = await client.GetAsync($"Products/SearchProductByName?productName={productName}");
+            if (response.IsSuccessStatusCode)
+            {
+                var products =await response.Content.ReadAsAsync<ResponseModel<Product>>();
+                return products;
+            }
+            else
+            {
+                return new ResponseModel<Product>
+                {
+                    IsSussess = false,
+                    Message = "Failed to search product."
                 };
             }
         }

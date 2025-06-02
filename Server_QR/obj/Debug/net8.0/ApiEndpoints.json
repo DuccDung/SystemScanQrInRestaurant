@@ -1,5 +1,15 @@
 [
   {
+    "ContainingType": "Server_QR.Controllers.CategorysController",
+    "Method": "GetAllCategory",
+    "RelativePath": "api/Categorys/GetAllCategory",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Server_QR.Controllers.OrdersController",
     "Method": "AddOrderDetailInOrder",
     "RelativePath": "api/Orders/AddOrderDetailInOrder",
@@ -250,6 +260,22 @@
       {
         "Name": "productId",
         "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Server_QR.Controllers.ProductsController",
+    "Method": "SearchProductByName",
+    "RelativePath": "api/Products/SearchProductByName",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productName",
+        "Type": "System.String",
         "IsRequired": false
       }
     ],

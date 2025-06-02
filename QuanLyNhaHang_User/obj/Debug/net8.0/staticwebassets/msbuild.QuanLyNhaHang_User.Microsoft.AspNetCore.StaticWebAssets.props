@@ -40044,8 +40044,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>fqdvz8ln1t</Fingerprint>
-      <Integrity>uXWK/MZQVXuYNPz35QQS7hb/cVM7vEi6adTfYQ1W9ag=</Integrity>
+      <Fingerprint>gvbt9365pb</Fingerprint>
+      <Integrity>pOldnZq06v7WLvIswb8a73lP5OohDcc3Lvilgez5JOs=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\asset\js\IndexScroll.js'))</OriginalItemSpec>
@@ -40080,11 +40080,29 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>ybtvcatdkl</Fingerprint>
-      <Integrity>wlV12DLIpuqjHNCBRqvL02yLrUTZVvaUTYpR9vRXbXM=</Integrity>
+      <Fingerprint>70zpa9iyxd</Fingerprint>
+      <Integrity>dyt76exEC0QG+8lUHrfoLPXzIW8u3s5i1rTo94yqbew=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\asset\js\menu_home.js'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\asset\js\SearchProductInMenu.js'))">
+      <SourceType>Package</SourceType>
+      <SourceId>QuanLyNhaHang_User</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/QuanLyNhaHang_User</BasePath>
+      <RelativePath>asset/js/SearchProductInMenu.js</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>972b3trt43</Fingerprint>
+      <Integrity>G7nS9tEe0R+HwThUCImKBp4Kahtqf+IDaiQdn27WWvo=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\asset\js\SearchProductInMenu.js'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\asset\sound\Thongbao.mp3'))">
       <SourceType>Package</SourceType>

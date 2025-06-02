@@ -1,0 +1,26 @@
+﻿@model List<Product>
+
+@foreach (var product in Model)
+{
+    <div class="menu-list">
+        <table>
+            <tr class="menu-item">
+                <td class="menu__product-img" style="width:10px">
+                    <div class="product__item-img"
+                         style="background-image: url(@product.PathPhoto);">
+                    </div>
+                </td>
+                <td class="menu__product-name">
+                    <div>@product.TenSanPham</div>
+                    <div class="menu__product-price" style="text-align: left; color:orange;">
+                        @String.Format("{0:N0}", product.GiaTien)đ
+                    </div>
+                </td>
+
+                <td class="menu__product-plus" id="product-@product.ProductId">
+                    @await Component.InvokeAsync("QuantitySelector", new { productId = product.ProductId })
+                </td>
+            </tr>
+        </table>
+    </div>
+}

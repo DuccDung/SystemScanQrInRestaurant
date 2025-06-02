@@ -11,7 +11,7 @@ namespace Server_QR.Controllers
     {
         private readonly QlnhaHangBtlContext _context;
         private readonly IApiService _apiService;
-        public ProductsController(QlnhaHangBtlContext context , IApiService apiService)
+        public ProductsController(QlnhaHangBtlContext context, IApiService apiService)
         {
             _context = context;
             _apiService = apiService;
@@ -63,6 +63,13 @@ namespace Server_QR.Controllers
         public async Task<IActionResult> GetProductConditionByProductId(int productId)
         {
             return Ok(await _apiService.GetProductConditionByProductId(productId));
+        }
+        [Route("SearchProductByName")]
+        [HttpGet]
+        public async Task<IActionResult> SearchProductByName(string productName)
+        {
+            var response = await _apiService.SearchProductByName(productName);
+            return Ok(response);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Server_QR.Models;
+﻿using Azure;
+using Server_QR.Models;
 
 namespace Server_QR.Services
 {
@@ -17,5 +18,7 @@ namespace Server_QR.Services
         Task<ResponseModel<RequestOrderDetail>> OrderDetailReduce(int userId, int orderId , int productId , int quantiy);
         Task<ResponseModel<bool>> DeleteOrderDetail(int orderId, int productId);
         Task<ResponseModel<int>> CountOrderDetailInOrder(int orderId);
+        Task<ResponseModel<Product>> SearchProductByName(string productName);
+        Task<ResponseModel<Category>> GetAllCategory();
     }
 }

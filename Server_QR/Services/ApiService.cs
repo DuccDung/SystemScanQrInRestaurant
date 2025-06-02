@@ -347,6 +347,65 @@ namespace Server_QR.Services
                 Data = cnt
             };
         }
+
+        public async Task<ResponseModel<Product>> SearchProductByName(string productName)
+        {
+            if (!string.IsNullOrEmpty(productName)) 
+            {
+                var products = await _context.Products
+                    .Where(p => p.TenSanPham != null && p.TenSanPham.Contains(productName)) 
+                    .ToListAsync();
+
+                if (products != null)
+                {
+                    return new ResponseModel<Product>
+                    {
+                        IsSussess = true,
+                        Message = "Product found.",
+                        DataList = products
+                    };
+                }
+                else
+                {
+                    return new ResponseModel<Product>
+                    {
+                        IsSussess = false,
+                        Message = "Product not found.",
+                        Data = null
+                    };
+                }
+            }
+
+            return new ResponseModel<Product>
+            {
+                IsSussess = false,
+                Message = "Invalid product name.",
+                DataList = null
+            };
+        }
+
+        public async Task<ResponseModel<Category>> GetAllCategory()
+        {
+            var cates = await _context.Categories.ToListAsync();
+            if (cates != null)
+            {
+                return new ResponseModel<Category>
+                {
+                    IsSussess = true,
+                    Message = "Categories retrieved successfully.",
+                    DataList = cates
+                };
+            }
+            else
+            {
+                return new ResponseModel<Category>
+                {
+                    IsSussess = false,
+                    Message = "No categories found.",
+                    DataList = null
+                };
+            }
+        }
     }
 }
 

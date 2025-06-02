@@ -18,5 +18,7 @@ namespace QuanLyNhaHang_User.Sevices
 
         Task<ResponseModel<bool>> DeleteOrderDetail(int orderId, int productId);
         Task<ResponseModel<int>> CountOrderDetailInOrder(int orderId);
+        Task<ResponseModel<Product>> SearchProductByName(string productName);
+        Task<ResponseModel<Category>> GetAllCategorys();
     }
 }

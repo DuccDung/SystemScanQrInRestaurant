@@ -2225,6 +2225,7 @@ wwwroot\asset\img\imgWeb\welcome.svg
 wwwroot\asset\js\IndexScroll.js
 wwwroot\asset\js\login_home.js
 wwwroot\asset\js\menu_home.js
+wwwroot\asset\js\SearchProductInMenu.js
 wwwroot\asset\sound\Thongbao.mp3
 wwwroot\asset\sound\Thongbao1.mp3
 wwwroot\assets\css\bootstrap-theme.min.css

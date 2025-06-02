@@ -172,5 +172,46 @@ namespace QuanLyNhaHang_User.Controllers
             }
             return Json(new { success = false, message = "Failed to remove order detail." });
         }
+
+        public async Task<IActionResult> GetOrderDetailCount()
+        {
+            var orderId = HttpContext.Session.GetInt32("orderId") ?? 0;
+            var countResponse = await _apiService.CountOrderDetailInOrder(orderId);
+            if (countResponse.IsSussess)
+            {
+                return Json(new { success = true, count = countResponse.Data });
+            }
+            else
+            {
+                _logger.LogError("Failed to get order detail count. Error: {ErrorMessage}", countResponse.Message);
+                return Json(new { success = false, message = "Failed to get order detail count." });
+            }
+        }
+        public async Task<IActionResult> SearchProduct(string productName)
+        {
+            var response = await _apiService.SearchProductByName(productName);
+            if (response.IsSussess && response.DataList != null)
+            {
+                return PartialView("SearchProductPartialView", response.DataList);
+            }
+            else
+            {
+                _logger.LogError("Failed to search product by name: {ProductName}. Error: {ErrorMessage}", productName, response.Message);
+                return Json(new { success = false, message = "No products found." });
+            }
+        }
+        public async Task<IActionResult> ReloadMenu()
+        {
+            var response = await _apiService.GetAllCategorys();
+            if (response.IsSussess)
+            {
+                return PartialView("ReloadMenuPartialView", response.DataList);
+            }
+            else
+            {
+                _logger.LogError("Failed to reload menu. Error: {ErrorMessage}", response.Message);
+                return Json(new { success = false, message = "Failed to reload menu." });
+            }
+        }
     }
 }

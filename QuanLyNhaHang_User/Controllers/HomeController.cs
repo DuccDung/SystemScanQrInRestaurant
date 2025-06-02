@@ -172,6 +172,5 @@ namespace QuanLyNhaHang_User.Controllers
             }
             return Json(new { success = false, message = "Failed to remove order detail." });
         }
-
     }
 }

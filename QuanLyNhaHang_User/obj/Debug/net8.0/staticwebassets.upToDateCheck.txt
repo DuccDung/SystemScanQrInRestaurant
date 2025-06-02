@@ -2222,6 +2222,7 @@ wwwroot\asset\img\imgWeb\tranchau.jpg
 wwwroot\asset\img\imgWeb\Trasuatrantrau.jpg
 wwwroot\asset\img\imgWeb\vietquatdasay.jpeg
 wwwroot\asset\img\imgWeb\welcome.svg
+wwwroot\asset\js\HubClientAtMenu.js
 wwwroot\asset\js\login_home.js
 wwwroot\asset\js\menu_home.js
 wwwroot\asset\sound\Thongbao.mp3

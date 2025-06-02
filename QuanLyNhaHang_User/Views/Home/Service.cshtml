@@ -7,7 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
-    <script src="jquery-3.2.1.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,8 +17,6 @@
     <link rel="stylesheet" href="~/asset/css/base.css" asp-append-version="true">
     <link rel="stylesheet" href="~/asset/css/home.css" asp-append-version="true">
     <link rel="stylesheet" href="~/asset/css/responsive.css" asp-append-version="true">
-    <link rel="stylesheet" type="text/css" href="btl.css" asp-append-version="true">
-    <link rel="stylesheet" href="~/asset/css/index2.css" asp-append-version="true">
     <link rel="stylesheet" href="~/asset/css/sevice.css" asp-append-version="true">
 
     <title>Kính chào quý khách</title>
@@ -29,8 +26,8 @@
 
     <div class="container header-banner text-start mt-4 custom-padding d-flex justify-content-between align-items-center">
         <div>
-            <p><strong>DAB Coffee - Chùa Láng</strong></p>
-            <p>137 Chùa Láng, Láng Thượng, Đống Đa, Hà Nội, Việt Nam</p>
+            <p><strong>Xưởng Cafe - Hoàng Quốc Việt</strong></p>
+            <p>387 Hoàng Quốc Việt, Nghĩa Tân, Cầu Giấy, Hà Nội, Việt Nam</p>
         </div>
     </div>
 
@@ -53,14 +50,15 @@
         <div class="row text-center">
             <div class="col-12 mt-3">
                 <p>
-                    Chúc bạn một ngày tốt lành <span>@Model</span><br>
+                    Chúc bạn một ngày tốt lành <strong>@Model</strong>
+                    <br>
                     Chúng tôi sẽ phục vụ bạn tại bàn!
                 </p>
             </div>
         </div>
 
         <div class="row my-4 justify-content-between">
-            <a asp-controller="Home" asp-action="LichSu" class="col-4 col-md-4 col-lg-4 mb-3 d-flex justify-content-center">
+            <div class="col-4 col-md-4 col-lg-4 mb-3 d-flex justify-content-center">
                 <div class="card-custom card fixed-size" data-bs-toggle="modal" data-bs-target="#paymentModal">
                     <div class="card-icon text-center">
                         <img src="/asset/img/imgWeb/request_payment.svg" alt="">
@@ -69,7 +67,7 @@
                         <h5 class="card-title text-center">Gọi thanh toán</h5>
                     </div>
                 </div>
-            </a>
+            </div>
             <div class="col-4 col-md-4 col-lg-4 mb-3 d-flex justify-content-center">
                 <div class="card-custom card fixed-size" data-bs-toggle="modal" data-bs-target="#requestModal">
                     <div class="card-icon  text-center">

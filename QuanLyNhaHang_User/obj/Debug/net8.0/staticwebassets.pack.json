@@ -8897,6 +8897,10 @@
       "PackagePath": "staticwebassets\\asset\\img\\imgWeb\\welcome.svg"
     },
     {
+      "Id": "D:\\laptrinhweb\\Scan_Qr\\Server_QR\\QuanLyNhaHang_User\\wwwroot\\asset\\js\\HubClientAtMenu.js",
+      "PackagePath": "staticwebassets\\asset\\js\\HubClientAtMenu.js"
+    },
+    {
       "Id": "D:\\laptrinhweb\\Scan_Qr\\Server_QR\\QuanLyNhaHang_User\\wwwroot\\asset\\js\\login_home.js",
       "PackagePath": "staticwebassets\\asset\\js\\login_home.js"
     },

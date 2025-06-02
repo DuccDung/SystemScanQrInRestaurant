@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/WebQuanLyTuXa.styles.css" asp-append-version="true" />
-
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,10 +13,9 @@
     <link rel="stylesheet"
           href="~/asset/font/fontawesome-free-6.5.2-web/fontawesome-free-6.5.2-web/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.0/signalr.min.js"></script>
     <link rel="stylesheet" href="~/asset/css/base.css" asp-append-version="true">
     <link rel="stylesheet" href="~/asset/css/responsive.css" asp-append-version="true">
-    <link rel="stylesheet" type="text/css" href="btl.css">
-    <link rel="stylesheet" href="~/QuanLyNhaHang_User.styles.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/asset/css/menu.css" asp-append-version="true">
     <title>Kính chào quý khách</title>
 </head>
@@ -47,17 +44,9 @@
         <div class="container__menu" id="content" style="margin-top: 90px;">
             @await Component.InvokeAsync("ProductInMenu")
         </div>
-        <div class="foodter">
-            <div class="foodter__icon-left foodter__icon">
-                <i class="fa-solid fa-cart-plus"></i>
-            </div>
-            <div class="foodter__content">Xem giỏ hàng(6)</div>
-            <div class="foodter__icon-right foodter__icon">
-                <i class="fa-solid fa-angle-right"></i>
-            </div>
-        </div>
+        @await Component.InvokeAsync("FoodterMenu")
     </div>
     <script src="~/asset/js/menu_home.js" asp-append-version="true"></script>
+    <script src="~/asset/js/HubClientAtMenu.js" asp-append-version="true"></script>
 </body>
-
 </html>

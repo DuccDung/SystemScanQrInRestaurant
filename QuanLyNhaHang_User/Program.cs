@@ -1,6 +1,16 @@
+using Microsoft.AspNetCore.SignalR;
+using Microsoft.Extensions.Options;
 using QuanLyNhaHang_User.Sevices;
+using QuanLyNhaHang_User.Sevices.HubService;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddSignalR(options =>
+{
+    options.EnableDetailedErrors = true;
+});
+
+builder.Services.AddSingleton<IUserIdProvider, CustomUserIdProvider>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -35,5 +45,5 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
+app.MapHub<HubServer>("/HubServer");
 app.Run();

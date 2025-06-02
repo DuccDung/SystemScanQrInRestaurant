@@ -323,16 +323,28 @@ namespace Server_QR.Services
             };
         }
 
-      public async Task<ResponseModel<int>> CountOrderDetailInOrder(int orderId)
+        public async Task<ResponseModel<int>> CountOrderDetailInOrder(int orderId)
         {
-            var count = await _context.ChiTietHoaDons
+            var orderDetail = await _context.ChiTietHoaDons
                 .Where(x => x.DhId == orderId)
-                .CountAsync();
+                .ToListAsync();
+            var cnt = 0;
+            if (orderDetail != null)
+            {
+                foreach (var item in orderDetail)
+                {
+                    if (item.SoLuong > 0)
+                    {
+                        cnt += (int)item.SoLuong;
+                    }
+                }
+            }
+
             return new ResponseModel<int>
             {
                 IsSussess = true,
                 Message = "Count retrieved successfully.",
-                Data = count
+                Data = cnt
             };
         }
     }

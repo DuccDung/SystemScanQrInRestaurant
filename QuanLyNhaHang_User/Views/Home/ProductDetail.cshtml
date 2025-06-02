@@ -20,9 +20,10 @@
     <form asp-controller="Home" asp-action="Order" method="post">
         <div class="app__product product-detail">
             <div class="container-fluid img-container bg-light p-0">
-                <img src="@Model.Product.PathPhoto"
+                <img  src="@Model.Product.PathPhoto"
                      class="img-fluid"
-                     alt="Responsive image">
+                     alt="Responsive image"
+                     style="height: 390px; object-fit: cover;">
             </div>
             <div class="app__product-container">
                 <div class="container__productDetail">

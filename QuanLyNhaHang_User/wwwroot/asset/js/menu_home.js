@@ -12,10 +12,28 @@ const menuHubConnection = new signalR.HubConnectionBuilder()
     .configureLogging(signalR.LogLevel.Information)
     .build();
 
-menuHubConnection.on("UpdateOrderDetailView", function (message) {
-    console.log("Received message:", message);
+let cntOrderDetail = Number(document.querySelector('#foodter__cnt-orderDetail').value);
+const foodterText = document.querySelector('#foodter__content-cnt');
+
+menuHubConnection.on("UpdateIncreasedOrderDetailView", (message) => {
+    cntOrderDetail+=1;
+    foodterText.innerHTML = "Xem giỏ hàng(" + cntOrderDetail + ")";
 });
 
+menuHubConnection.on("UpdateDecreasedOrderDetailView", (message) => {
+    cntOrderDetail -= 1;
+    foodterText.innerHTML = "Xem giỏ hàng(" + cntOrderDetail + ")";
+});
+
+menuHubConnection.on("UpdateRemoveOrderDetailView", (message) => {
+    if (cntOrderDetail <= 1) {
+        document.querySelector('.foodter').remove();
+    }
+    else {
+        cntOrderDetail -= 1;
+        foodterText.innerHTML = "Xem giỏ hàng(" + cntOrderDetail + ")";
+    }
+});
 
 // =================================================================================
 // handle addition and subtraction order detail in page menu
@@ -39,6 +57,16 @@ $(".increase-btn").on('click', function (event) {
                 console.error(response.error);
             } else {
                 quantityInput.val(response.newQuantity);
+
+                if (menuHubConnection.state === signalR.HubConnectionState.Disconnected) {
+                    menuHubConnection.start().then(() => {
+                        menuHubConnection.invoke("SendMessageInMenuIncreasedProduct", userIdsignalR, productId + "")
+                    })
+                        .catch(err => console.error(" Hub start error:", err));
+                }
+                else {
+                    menuHubConnection.invoke("SendMessageInMenuIncreasedProduct", userIdsignalR, productId + "")
+                }
             }
         },
         error: function (xhr, status, error) {
@@ -69,12 +97,12 @@ $(".decrease-btn").on('click', function (event) {
 
                     if (menuHubConnection.state === signalR.HubConnectionState.Disconnected) {
                         menuHubConnection.start().then(() => {
-                            menuHubConnection.invoke("SendMessage", userIdsignalR, `has remove button subtraction & addition ID: ${productId}`)
+                            menuHubConnection.invoke("SendMessageInMenuRemoveOrderDetail", userIdsignalR, productId + "")
                         })
                             .catch(err => console.error(" Hub start error:", err));
                     }
                     else {
-                        menuHubConnection.invoke("SendMessage", userIdsignalR, `has remove button subtraction & addition ID: ${productId}`)
+                        menuHubConnection.invoke("SendMessageInMenuRemoveOrderDetail", userIdsignalR, productId + "")
                     }
                 }
             },
@@ -100,12 +128,12 @@ $(".decrease-btn").on('click', function (event) {
 
                     if (menuHubConnection.state === signalR.HubConnectionState.Disconnected) {
                         menuHubConnection.start().then(() => {
-                            menuHubConnection.invoke("SendMessage", userIdsignalR, `has decreased quantity product ID: ${productId} xuống ${response.newQuantity}`)
+                            menuHubConnection.invoke("SendMessageInMenuDecreasedProduct", userIdsignalR, productId + "")
                         })
-                            .catch(err => console.error("❌ Hub start error:", err));
+                            .catch(err => console.error(" Hub start error:", err));
                     }
                     else {
-                        menuHubConnection.invoke("SendMessage", userIdsignalR, `has decreased quantity product ID: ${productId} xuống ${response.newQuantity}`)
+                        menuHubConnection.invoke("SendMessageInMenuDecreasedProduct", userIdsignalR, productId + "")
                     }
                 }
             },

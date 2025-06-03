@@ -71,5 +71,19 @@ namespace Server_QR.Controllers
             var response = await _apiService.SearchProductByName(productName);
             return Ok(response);
         }
+        [Route("GetAllProductByCategoryId")]
+        [HttpGet]
+        public async Task<IActionResult> GetAllProductByCategoryId(int categoryId)
+        {
+            var response = await _apiService.GetAllProductByCategoryId(categoryId);
+            if (response.IsSussess && response.DataList != null)
+            {
+                return Ok(response);
+            }
+            else
+            {
+                return NotFound("No member categories found.");
+            }
+        }
     }
 }

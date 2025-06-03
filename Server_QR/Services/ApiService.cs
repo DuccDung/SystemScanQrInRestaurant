@@ -406,6 +406,24 @@ namespace Server_QR.Services
                 };
             }
         }
+
+        public async Task<ResponseModel<Product>> GetAllProductByCategoryId(int categoryId)
+        {
+            var products =await _context.Products.Where(x => x.CateId == categoryId).ToListAsync();
+            ResponseModel<Product> responseModel = new ResponseModel<Product>
+            {
+                IsSussess = true,
+                Message = "Products retrieved successfully.",
+                DataList = products
+            };
+            if (products == null || !products.Any())
+            {
+                responseModel.IsSussess = false;
+                responseModel.Message = "No products found for this category.";
+                responseModel.DataList = null;
+            }
+            return responseModel;
+        }
     }
 }
 

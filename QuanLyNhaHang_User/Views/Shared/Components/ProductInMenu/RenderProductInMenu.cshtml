@@ -1,12 +1,11 @@
-﻿@using static QuanLyNhaHang_User.Views.Shared.Components.ProductInMenu.ProductInMenuViewComponent
-@model DataModel
-@foreach (var category in Model.GetDataCategory())
+﻿@model List<ProductInMenuViewModel>
+@foreach (var item in Model)
 {
-    <div id="@category.CateId" class="label-container">
-        @category.TenLoaiSanPham
+    <div id="@item.Category?.CateId" class="label-container">
+        @item.Category?.TenLoaiSanPham
     </div>
 
-    foreach (var product in Model.GetDataProduct(category.CateId))
+    foreach (var product in item.Products ?? new List<Product>())
     {
         <div class="menu-list">
             <table>

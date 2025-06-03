@@ -20,5 +20,6 @@ namespace Server_QR.Services
         Task<ResponseModel<int>> CountOrderDetailInOrder(int orderId);
         Task<ResponseModel<Product>> SearchProductByName(string productName);
         Task<ResponseModel<Category>> GetAllCategory();
+        Task<ResponseModel<Product>> GetAllProductByCategoryId(int categoryId);
     }
 }

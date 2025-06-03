@@ -20,5 +20,6 @@ namespace QuanLyNhaHang_User.Sevices
         Task<ResponseModel<int>> CountOrderDetailInOrder(int orderId);
         Task<ResponseModel<Product>> SearchProductByName(string productName);
         Task<ResponseModel<Category>> GetAllCategorys();
+        Task<ResponseModel<Product>> GetAllProductByCategoryId(int categoryId);
     }
 }

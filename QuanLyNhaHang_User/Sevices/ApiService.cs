@@ -116,6 +116,23 @@ namespace QuanLyNhaHang_User.Sevices
             }
         }
 
+        public async Task<ResponseModel<Product>> GetAllProductByCategoryId(int categoryId)
+        {
+            var response = await client.GetAsync($"Products/GetAllProductByCategoryId?categoryId={categoryId}");
+            if (response.IsSuccessStatusCode)
+            {
+                var products = await response.Content.ReadAsAsync<ResponseModel<Product>>();
+                return products;
+            }
+            else
+            {
+                return new ResponseModel<Product>
+                {
+                    IsSussess = false,
+                    Message = "Failed to retrieve products by category ID."
+                };
+            }
+        }
         public async Task<ResponseModel<Product>> GetProductById(int productId)
         {
             // This method is not implemented yet. api/Products/GetProductById?productId=1
@@ -247,7 +264,7 @@ namespace QuanLyNhaHang_User.Sevices
             var response = await client.GetAsync($"Products/SearchProductByName?productName={productName}");
             if (response.IsSuccessStatusCode)
             {
-                var products =await response.Content.ReadAsAsync<ResponseModel<Product>>();
+                var products = await response.Content.ReadAsAsync<ResponseModel<Product>>();
                 return products;
             }
             else

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using QuanLyNhaHang_User.Models;
+using QuanLyNhaHang_User.Sevices;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -7,61 +8,31 @@ namespace QuanLyNhaHang_User.Views.Shared.Components.ProductInMenu
 {
     public class ProductInMenuViewComponent : ViewComponent
     {
-        private readonly IHttpClientFactory _httpClient;
-        private readonly IConfiguration _configuration;
-        public ProductInMenuViewComponent(IHttpClientFactory httpClient, IConfiguration configuration)
+        private readonly IApiService _apiService;
+
+        public ProductInMenuViewComponent(IApiService apiService)
         {
-            _httpClient = httpClient;
-            _configuration = configuration;
+            _apiService = apiService;
         }
-        public class DataModel
+        public async Task<IViewComponentResult> InvokeAsync()
         {
-            private readonly IHttpClientFactory _httpClient;
-            private readonly IConfiguration _configuration;
-            public DataModel(IHttpClientFactory httpClient, IConfiguration configuration)
+            List<ProductInMenuViewModel> dataModel = new List<ProductInMenuViewModel>();
+            var categoriesResult = await _apiService.GetAllCategorys();
+            if (categoriesResult.IsSussess)
             {
-                _httpClient = httpClient;
-                _configuration = configuration;
-            }
-            public List<Category> GetDataCategory()
-            {
-                var client = _httpClient.CreateClient();
-                var baseUrl = _configuration["ApiSettings:BaseUrl"];
-                var response = client.GetAsync($"{baseUrl}api/Products/GetAllMemberCate").Result; // dùng .Result để đồng bộ
+                foreach (var category in categoriesResult.DataList)
+                {
+                    ProductInMenuViewModel temp = new ProductInMenuViewModel();
+                    temp.Category = category;
 
-                if (response.IsSuccessStatusCode)
-                {
-                    var jsonString = response.Content.ReadAsStringAsync().Result; // dùng .Result để đồng bộ
-                    var categories = JsonSerializer.Deserialize<List<Category>>(jsonString);
-                    return categories;
-                }
-                else
-                {
-                    return null;
+                    var productsResult = await _apiService.GetAllProductByCategoryId(category.CateId);
+                    if (productsResult.IsSussess && productsResult.DataList != null)
+                    {
+                        temp.Products = productsResult.DataList;
+                    }
+                    dataModel.Add(temp);
                 }
             }
-
-            public List<Product> GetDataProduct(int CateId)
-            {
-                var client = _httpClient.CreateClient();
-                var baseUrl = _configuration["ApiSettings:BaseUrl"];
-                var response = client.GetAsync($"{baseUrl}api/Products/GetAllProductsByCateId?id={CateId}").Result;
-                if (response.IsSuccessStatusCode)
-                {
-                    var jsonString = response.Content.ReadAsStringAsync().Result;
-                    var Products = JsonSerializer.Deserialize<List<Product>>(jsonString);
-                    return Products;
-                }
-                else
-                {
-                    return null;
-                }
-            }
-        }
-
-        public IViewComponentResult Invoke()
-        {
-            DataModel dataModel = new DataModel(_httpClient, _configuration);
             return View("RenderProductInMenu", dataModel);
         }
     }

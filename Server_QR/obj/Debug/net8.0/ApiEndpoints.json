@@ -209,6 +209,22 @@
   },
   {
     "ContainingType": "Server_QR.Controllers.ProductsController",
+    "Method": "GetAllProductByCategoryId",
+    "RelativePath": "api/Products/GetAllProductByCategoryId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "categoryId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Server_QR.Controllers.ProductsController",
     "Method": "GetAllProducts",
     "RelativePath": "api/Products/GetAllProducts",
     "HttpMethod": "GET",

@@ -202,16 +202,24 @@ namespace QuanLyNhaHang_User.Controllers
         }
         public async Task<IActionResult> ReloadMenu()
         {
-            var response = await _apiService.GetAllCategorys();
-            if (response.IsSussess)
+            List<ProductInMenuViewModel> dataModel = new List<ProductInMenuViewModel>();
+            var categoriesResult = await _apiService.GetAllCategorys();
+            if (categoriesResult.IsSussess)
             {
-                return PartialView("ReloadMenuPartialView", response.DataList);
+                foreach (var category in categoriesResult.DataList)
+                {
+                    ProductInMenuViewModel temp = new ProductInMenuViewModel();
+                    temp.Category = category;
+
+                    var productsResult = await _apiService.GetAllProductByCategoryId(category.CateId);
+                    if (productsResult.IsSussess && productsResult.DataList != null)
+                    {
+                        temp.Products = productsResult.DataList;
+                    }
+                    dataModel.Add(temp);
+                }
             }
-            else
-            {
-                _logger.LogError("Failed to reload menu. Error: {ErrorMessage}", response.Message);
-                return Json(new { success = false, message = "Failed to reload menu." });
-            }
+            return PartialView("ReloadMenuPartialView", dataModel);
         }
     }
 }

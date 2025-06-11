@@ -69,6 +69,14 @@ namespace QuanLyNhaHang_User.Controllers
                 // Set the user ID in the session
                 HttpContext.Session.SetInt32("userId", response.Data.KhId);
                 HttpContext.Session.SetString("userName", response.Data.TenKhachHang);
+
+                var tableId = HttpContext.Session.GetInt32("tableId") ?? 0;
+                var order = await _apiService.CheckOrderOrInitOrder(response.Data.KhId, tableId);
+
+                if (order.Data != null)
+                {
+                    HttpContext.Session.SetInt32("orderId", order.Data.DhId);
+                }
                 // Set the user ID in a cookie for 7 days
                 Response.Cookies.Append("userId", response.Data.KhId.ToString(), new CookieOptions
                 {

@@ -21,5 +21,5 @@ public partial class ChiTietHoaDon
 
     public virtual DonHang Dh { get; set; } = null!;
 
-    public virtual Product? Product { get; set; }
+    public virtual Product Product { get; set; } = null!;
 }

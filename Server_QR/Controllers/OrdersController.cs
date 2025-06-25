@@ -114,5 +114,33 @@ namespace Server_QR.Controllers
                 return BadRequest(response.Message);
             }
         }
+        [HttpGet]
+        [Route("GetAllOrderDetailInOrder")]
+        public async Task<IActionResult> GetAllOrderDetailInOrder(int orderId)
+        {
+            var response = await _apiService.GetAllOrderDetailInOrder(orderId);
+            if (response.IsSussess)
+            {
+                return Ok(response);
+            }
+            else
+            {
+                return BadRequest(response.Message);
+            }
+        }
+        [HttpGet]
+        [Route("GetAllProductDetailInOrder")]
+        public async Task<IActionResult> GetAllProductDetailInOrder(int orderId)
+        {
+            var response = await _apiService.GetAllProductDetailInOrder(orderId);
+            if (response.IsSussess)
+            {
+                return Ok(response);
+            }
+            else
+            {
+                return BadRequest(response.Message);
+            }
+        }
     }
 }

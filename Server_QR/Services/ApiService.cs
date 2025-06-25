@@ -350,10 +350,10 @@ namespace Server_QR.Services
 
         public async Task<ResponseModel<Product>> SearchProductByName(string productName)
         {
-            if (!string.IsNullOrEmpty(productName)) 
+            if (!string.IsNullOrEmpty(productName))
             {
                 var products = await _context.Products
-                    .Where(p => p.TenSanPham != null && p.TenSanPham.Contains(productName)) 
+                    .Where(p => p.TenSanPham != null && p.TenSanPham.Contains(productName))
                     .ToListAsync();
 
                 if (products != null)
@@ -409,7 +409,7 @@ namespace Server_QR.Services
 
         public async Task<ResponseModel<Product>> GetAllProductByCategoryId(int categoryId)
         {
-            var products =await _context.Products.Where(x => x.CateId == categoryId).ToListAsync();
+            var products = await _context.Products.Where(x => x.CateId == categoryId).ToListAsync();
             ResponseModel<Product> responseModel = new ResponseModel<Product>
             {
                 IsSussess = true,
@@ -423,6 +423,56 @@ namespace Server_QR.Services
                 responseModel.DataList = null;
             }
             return responseModel;
+        }
+
+        public async Task<ResponseModel<List<ResponseItemCart>>> GetAllOrderDetailInOrder(int orderId)
+        {
+            var orderDetails = await _context.ChiTietHoaDons
+                .Where(x => x.DhId == orderId)
+                .Include(x => x.Product)
+                .Select(x => new ResponseItemCart
+                {
+                    OrderDetail = new ChiTietHoaDon
+                    {
+                        DhId = x.DhId,
+                        ProductId = x.ProductId,
+                        SoLuong = x.SoLuong,
+                        ThanhTien = x.ThanhTien,
+                        Ghichu = x.Ghichu
+                    },
+                    Product = x.Product,
+                })
+                .ToListAsync();
+
+            return new ResponseModel<List<ResponseItemCart>>
+            {
+                IsSussess = true,
+                Message = "Order details retrieved successfully.",
+                Data = orderDetails
+            };
+        }
+
+        public async Task<ResponseModel<ProductInCartDetail>> GetAllProductDetailInOrder(int orderId)
+        {
+            var productDetail = await _context.ChiTietHoaDons
+                .Where(x => x.DhId == orderId)
+                .Select(x => new ProductInCartDetail
+                {
+                    ProductId = x.ProductId,
+                    ProductName = x.Product.TenSanPham,
+                    ProductImage = x.Product.PathPhoto,
+                    Quantity = x.SoLuong,
+                    Price = x.ThanhTien,
+                    Description = x.Ghichu
+                })
+                .ToListAsync();
+
+            return new ResponseModel<ProductInCartDetail>
+            {
+                IsSussess = true,
+                Message = "Product details retrieved successfully.",
+                DataList = productDetail
+            };
         }
     }
 }

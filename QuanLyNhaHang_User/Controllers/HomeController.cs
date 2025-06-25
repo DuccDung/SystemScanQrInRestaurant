@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using QuanLyNhaHang_User.Models;
 using QuanLyNhaHang_User.Sevices;
 using System.Diagnostics;
@@ -228,6 +229,22 @@ namespace QuanLyNhaHang_User.Controllers
                 }
             }
             return PartialView("ReloadMenuPartialView", dataModel);
+        }
+        public  IActionResult RedirectCart()
+        {
+           return RedirectToAction("Cart", "Home");
+        }
+        public IActionResult Cart()
+        {
+            if (HttpContext.Session.GetInt32("userId") != null)
+            {
+                var orderId = HttpContext.Session.GetInt32("orderId");
+                return View("Cart");
+            }
+            else
+            {
+                return RedirectToAction("UserLogin", "Home");
+            }
         }
     }
 }

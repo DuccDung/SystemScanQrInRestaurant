@@ -52,6 +52,9 @@ $(".increase-btn").on('click', function (event) {
             productId: productId,
             orderId: orderId
         },
+        beforeSend: function () {
+            $(".overlay-spinner").addClass("show");
+        },
         success: function (response) {
             if (response.error) {
                 console.error(response.error);
@@ -68,6 +71,9 @@ $(".increase-btn").on('click', function (event) {
                     menuHubConnection.invoke("SendMessageInMenuIncreasedProduct", userIdsignalR, productId + "")
                 }
             }
+        },
+        complete: function () {
+            $(".overlay-spinner").addClass("hide");
         },
         error: function (xhr, status, error) {
             console.error('Có lỗi xảy ra:', error);
@@ -89,6 +95,9 @@ $(".decrease-btn").on('click', function (event) {
             data: {
                 productId: productId
             },
+            beforeSend: function () {
+                $(".overlay-spinner").addClass("show");
+            },
             success: function (response) {
                 if (response.error) {
                     console.error(response.error);
@@ -106,6 +115,9 @@ $(".decrease-btn").on('click', function (event) {
                     }
                 }
             },
+            complete: function () {
+                $(".overlay-spinner").addClass("hide");
+            },
             error: function (xhr, status, error) {
                 console.error('Có lỗi xảy ra:', error);
             }
@@ -119,6 +131,9 @@ $(".decrease-btn").on('click', function (event) {
                 quantity: quantity,
                 productId: productId,
                 orderId: orderId
+            },
+            beforeSend: function () {
+                $(".overlay-spinner").addClass("show");
             },
             success: function (response) {
                 if (response.error) {
@@ -137,9 +152,35 @@ $(".decrease-btn").on('click', function (event) {
                     }
                 }
             },
+            complete: function () {
+                $(".overlay-spinner").addClass("hide");
+            },
             error: function (xhr, status, error) {
                 console.error('Có lỗi xảy ra:', error);
             }
         });
     }
 });
+
+$(".btn-redirect-cart").on("click", function () {
+    $.ajax({
+        url: '/Home/RedirectCart',
+        type: 'POST',
+        beforeSend: function () {
+            $(".overlay-spinner").addClass("show");
+        },
+        success: function (response) {
+            if (response.error) {
+                console.error(response.error);
+            } else {
+                window.location.href = response.redirectUrl;
+            }
+        },
+        complete: function () {
+            $(".overlay-spinner").addClass("hide");
+        },
+        error: function (xhr, status, error) {
+            console.error('Có lỗi xảy ra:', error);
+        }
+    })
+})

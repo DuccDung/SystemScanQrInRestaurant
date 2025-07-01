@@ -23,7 +23,7 @@
     <title>Kính chào quý khách</title>
 </head>
 
-
+@model List<ProductInCartDetail>
 <body>
     <div class="foreground">
         <div class="header__card">
@@ -52,31 +52,35 @@
         <div class="container__card">
             <div class="bought--item">
                 <div class="item-editor">
-                    <div class="item-box">
-                        <div class="item-inner--right">
-                            <div class="card-img" style="background-image: url(/asset/img/imgWeb/default_food.svg);">
+                    @foreach(var item in Model)
+                    {
+                        <div class="item-box">
+                            <div class="item-inner--right">
+                                <div class="card-img" style="background-image: url(~@item.ProductImage);">
+                                </div>
+                                <div class="card-product-info">
+                                    <span>
+                                        <span style="color: var(--primary--color)">@item.Quantity x</span> @item.ProductName
+                                    </span>
+                                    <span class="card-product--description">
+                                        @item.Description
+                                    </span>
+                                    <span class="card-product--price">
+                                        @item.Price?.ToString("N0")đ
+                                    </span>
+                                </div>
                             </div>
-                            <div class="card-product-info">
-                                <span>
-                                    <span style="color: var(--primary--color)">1 x</span> Americano
-                                </span>
-                                <span class="card-product--description">
-                                    Đá
-                                </span>
-                                <span class="card-product--price">
-                                    55.000đ
-                                </span>
+                            <div class="item-inner--left">
+                                <div class="btn-remove">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </div>
+                                <div class="btn-edit">
+                                    <span>edit</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="item-inner--left">
-                            <div class="btn-remove">
-                                <i class="fa-solid fa-xmark"></i>
-                            </div>
-                            <div class="btn-edit">
-                                <span>edit</span>
-                            </div>
-                        </div>
-                    </div>
+
+                    }
                 </div>
             </div>
         </div>

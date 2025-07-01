@@ -11,7 +11,6 @@ namespace QuanLyNhaHang_User.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IApiService _apiService;
-
         public HomeController(ILogger<HomeController> logger, IApiService apiService)
         {
             _logger = logger;
@@ -117,24 +116,34 @@ namespace QuanLyNhaHang_User.Controllers
         [HttpPost]
         public async Task<IActionResult> Order(ProductOrderPageViewModel productOrderPageViewModel)
         {
-          
-            var response = await _apiService.AddOrderDetailOnOrder(new RequestOrderDetail
+            if (productOrderPageViewModel.OrderInfo.price.HasValue)
             {
-                DhId = HttpContext.Session.GetInt32("orderId") ?? 0,
-                ProductId = productOrderPageViewModel.OrderInfo.ProductID,
-                SoLuong = productOrderPageViewModel.OrderInfo.SoLuong,
-                Ghichu = "Ghi chú: " + productOrderPageViewModel.OrderInfo.GhiChu + " , Trạng thái: " + productOrderPageViewModel.OrderInfo.Conditions
-            });
-            if (response.IsSussess)
-            {
-                _logger.LogInformation("Order detail added successfully for Product ID: {ProductId}", productOrderPageViewModel.OrderInfo.ProductID);
-                return RedirectToAction("Menu", "Home");
+                var response = await _apiService.AddOrderDetailOnOrder(new RequestOrderDetail
+                {
+                    DhId = HttpContext.Session.GetInt32("orderId") ?? 0,
+                    ProductId = productOrderPageViewModel.OrderInfo.ProductID,
+                    SoLuong = productOrderPageViewModel.OrderInfo.SoLuong,
+                    ThanhTien = productOrderPageViewModel.OrderInfo.price.Value,
+                    Ghichu = "Ghi chú: " + productOrderPageViewModel.OrderInfo.GhiChu + " , Trạng thái: " + string.Join(", ", productOrderPageViewModel.OrderInfo.Conditions)
+                });
+
+                if (response.IsSussess)
+                {
+                    _logger.LogInformation("Order detail added successfully for Product ID: {ProductId}", productOrderPageViewModel.OrderInfo.ProductID);
+                    return RedirectToAction("Menu", "Home");
+                }
+                else
+                {
+                    _logger.LogError("Failed to add order detail for Product ID: {ProductId}. Error: {ErrorMessage}", productOrderPageViewModel.OrderInfo.ProductID, response.Message);
+                    ModelState.AddModelError("", "Failed to add order detail. Please try again.");
+                    return BadRequest("Null productId");
+                }
             }
             else
             {
-                _logger.LogError("Failed to add order detail for Product ID: {ProductId}. Error: {ErrorMessage}", productOrderPageViewModel.OrderInfo.ProductID, response.Message);
-                ModelState.AddModelError("", "Failed to add order detail. Please try again.");
-                return BadRequest("Null productId");
+                _logger.LogError("Price is null for Product ID: {ProductId}", productOrderPageViewModel.OrderInfo.ProductID);
+                ModelState.AddModelError("", "Price cannot be null.");
+                return BadRequest("Price is null.");
             }
         }
         public IActionResult Index()
@@ -181,7 +190,6 @@ namespace QuanLyNhaHang_User.Controllers
             }
             return Json(new { success = false, message = "Failed to remove order detail." });
         }
-
         public async Task<IActionResult> GetOrderDetailCount()
         {
             var orderId = HttpContext.Session.GetInt32("orderId") ?? 0;
@@ -234,12 +242,19 @@ namespace QuanLyNhaHang_User.Controllers
         {
            return RedirectToAction("Cart", "Home");
         }
-        public IActionResult Cart()
+        public async Task<IActionResult> Cart()
         {
             if (HttpContext.Session.GetInt32("userId") != null)
             {
-                var orderId = HttpContext.Session.GetInt32("orderId");
-                return View("Cart");
+                var orderId = HttpContext.Session.GetInt32("orderId") ?? 0;
+                if (orderId == 0)
+                {
+                    _logger.LogWarning("Order ID is not set in the session.");
+                    return RedirectToAction("Service", "Home");
+                }
+                var results =await _apiService.GetAllProductDetailInOrder(orderId); 
+                var productDetail = results.DataList;
+                return View(productDetail);
             }
             else
             {

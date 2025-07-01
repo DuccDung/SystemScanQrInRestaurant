@@ -133,6 +133,25 @@ namespace QuanLyNhaHang_User.Sevices
                 };
             }
         }
+
+        public async Task<ResponseModel<ProductInCartDetail>> GetAllProductDetailInOrder(int orderId)
+        {
+            var response = await client.GetAsync($"Orders/GetAllProductDetailInOrder?orderId={orderId}");
+            if (response.IsSuccessStatusCode)
+            {
+                var productDetails = await response.Content.ReadAsAsync<ResponseModel<ProductInCartDetail>>();
+                if (productDetails != null)
+                {
+                    return productDetails;
+                }
+            }
+            return new ResponseModel<ProductInCartDetail>
+            {
+                IsSussess = false,
+                Message = "Failed to retrieve product details in order."
+            };
+        }
+
         public async Task<ResponseModel<Product>> GetProductById(int productId)
         {
             // This method is not implemented yet. api/Products/GetProductById?productId=1

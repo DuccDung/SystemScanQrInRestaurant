@@ -5,6 +5,7 @@
         public int ProductID { get; set; }
         public int SoLuong { get; set; }
         public string? GhiChu { get; set; }
+        public decimal ? price { get; set; }
         public List<string> Conditions { get; set; } = new();
     }
 

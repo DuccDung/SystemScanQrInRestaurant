@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "UGammMTQxqmB6wl6rZt8ZD6+kol0daUxxwcY7b1JnSI=",
+  "Hash": "4cVnw1+VfPJkr83OiHWncAOmU6sCA9jEBigymZXaHsI=",
   "Source": "QuanLyNhaHang_User",
   "BasePath": "_content/QuanLyNhaHang_User",
   "Mode": "Default",
@@ -46803,6 +46803,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\asset\\js\\SearchProductInMenu.js"
+    },
+    {
+      "Identity": "D:\\laptrinhweb\\Scan_Qr\\Server_QR\\QuanLyNhaHang_User\\wwwroot\\asset\\js\\TotalPrice.js",
+      "SourceId": "QuanLyNhaHang_User",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\laptrinhweb\\Scan_Qr\\Server_QR\\QuanLyNhaHang_User\\wwwroot\\",
+      "BasePath": "_content/QuanLyNhaHang_User",
+      "RelativePath": "asset/js/TotalPrice#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "zr8blzl6vi",
+      "Integrity": "0Y2wIZ7gBczlOK4NhQ2FjtmkVtruTCLqcJGgTtyHIvg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\asset\\js\\TotalPrice.js"
     },
     {
       "Identity": "D:\\laptrinhweb\\Scan_Qr\\Server_QR\\QuanLyNhaHang_User\\wwwroot\\asset\\sound\\Thongbao.mp3",
@@ -251423,6 +251444,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-G7nS9tEe0R+HwThUCImKBp4Kahtqf+IDaiQdn27WWvo="
+        }
+      ]
+    },
+    {
+      "Route": "asset/js/TotalPrice.js",
+      "AssetFile": "D:\\laptrinhweb\\Scan_Qr\\Server_QR\\QuanLyNhaHang_User\\wwwroot\\asset\\js\\TotalPrice.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1425"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0Y2wIZ7gBczlOK4NhQ2FjtmkVtruTCLqcJGgTtyHIvg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 01 Jul 2025 15:09:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-0Y2wIZ7gBczlOK4NhQ2FjtmkVtruTCLqcJGgTtyHIvg="
+        }
+      ]
+    },
+    {
+      "Route": "asset/js/TotalPrice.zr8blzl6vi.js",
+      "AssetFile": "D:\\laptrinhweb\\Scan_Qr\\Server_QR\\QuanLyNhaHang_User\\wwwroot\\asset\\js\\TotalPrice.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1425"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0Y2wIZ7gBczlOK4NhQ2FjtmkVtruTCLqcJGgTtyHIvg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 01 Jul 2025 15:09:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "zr8blzl6vi"
+        },
+        {
+          "Name": "label",
+          "Value": "asset/js/TotalPrice.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-0Y2wIZ7gBczlOK4NhQ2FjtmkVtruTCLqcJGgTtyHIvg="
         }
       ]
     },

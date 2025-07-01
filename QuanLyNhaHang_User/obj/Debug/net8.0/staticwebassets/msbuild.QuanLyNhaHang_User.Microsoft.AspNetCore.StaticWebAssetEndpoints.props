@@ -26736,6 +26736,18 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-G7nS9tEe0R\u002BHwThUCImKBp4Kahtqf\u002BIDaiQdn27WWvo="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"824"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022G7nS9tEe0R\u002BHwThUCImKBp4Kahtqf\u002BIDaiQdn27WWvo=\u0022"},{"Name":"Last-Modified","Value":"Mon, 02 Jun 2025 14:27:04 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/QuanLyNhaHang_User/asset/js/TotalPrice.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\asset\js\TotalPrice.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-0Y2wIZ7gBczlOK4NhQ2FjtmkVtruTCLqcJGgTtyHIvg="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1425"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00220Y2wIZ7gBczlOK4NhQ2FjtmkVtruTCLqcJGgTtyHIvg=\u0022"},{"Name":"Last-Modified","Value":"Tue, 01 Jul 2025 15:09:25 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/QuanLyNhaHang_User/asset/js/TotalPrice.zr8blzl6vi.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\asset\js\TotalPrice.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"zr8blzl6vi"},{"Name":"integrity","Value":"sha256-0Y2wIZ7gBczlOK4NhQ2FjtmkVtruTCLqcJGgTtyHIvg="},{"Name":"label","Value":"_content/QuanLyNhaHang_User/asset/js/TotalPrice.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1425"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00220Y2wIZ7gBczlOK4NhQ2FjtmkVtruTCLqcJGgTtyHIvg=\u0022"},{"Name":"Last-Modified","Value":"Tue, 01 Jul 2025 15:09:25 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/QuanLyNhaHang_User/asset/sound/Thongbao.e4dic7a4i3.mp3">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\asset\sound\Thongbao.mp3'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>

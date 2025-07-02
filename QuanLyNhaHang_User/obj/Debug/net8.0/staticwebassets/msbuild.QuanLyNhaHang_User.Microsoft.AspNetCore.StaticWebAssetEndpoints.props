@@ -26739,14 +26739,14 @@
     <StaticWebAssetEndpoint Include="_content/QuanLyNhaHang_User/asset/js/TotalPrice.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\asset\js\TotalPrice.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-0Y2wIZ7gBczlOK4NhQ2FjtmkVtruTCLqcJGgTtyHIvg="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1425"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00220Y2wIZ7gBczlOK4NhQ2FjtmkVtruTCLqcJGgTtyHIvg=\u0022"},{"Name":"Last-Modified","Value":"Tue, 01 Jul 2025 15:09:25 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-9Sojxrr7G4nOT627EjbP\u002BIBKd\u002B4iewegYz3yXAru3UQ="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1261"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00229Sojxrr7G4nOT627EjbP\u002BIBKd\u002B4iewegYz3yXAru3UQ=\u0022"},{"Name":"Last-Modified","Value":"Wed, 02 Jul 2025 00:57:34 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/QuanLyNhaHang_User/asset/js/TotalPrice.zr8blzl6vi.js">
+    <StaticWebAssetEndpoint Include="_content/QuanLyNhaHang_User/asset/js/TotalPrice.r0vg448da9.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\asset\js\TotalPrice.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"zr8blzl6vi"},{"Name":"integrity","Value":"sha256-0Y2wIZ7gBczlOK4NhQ2FjtmkVtruTCLqcJGgTtyHIvg="},{"Name":"label","Value":"_content/QuanLyNhaHang_User/asset/js/TotalPrice.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1425"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00220Y2wIZ7gBczlOK4NhQ2FjtmkVtruTCLqcJGgTtyHIvg=\u0022"},{"Name":"Last-Modified","Value":"Tue, 01 Jul 2025 15:09:25 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"r0vg448da9"},{"Name":"integrity","Value":"sha256-9Sojxrr7G4nOT627EjbP\u002BIBKd\u002B4iewegYz3yXAru3UQ="},{"Name":"label","Value":"_content/QuanLyNhaHang_User/asset/js/TotalPrice.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1261"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00229Sojxrr7G4nOT627EjbP\u002BIBKd\u002B4iewegYz3yXAru3UQ=\u0022"},{"Name":"Last-Modified","Value":"Wed, 02 Jul 2025 00:57:34 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/QuanLyNhaHang_User/asset/sound/Thongbao.e4dic7a4i3.mp3">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\asset\sound\Thongbao.mp3'))</AssetFile>

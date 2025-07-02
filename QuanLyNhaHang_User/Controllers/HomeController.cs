@@ -116,14 +116,14 @@ namespace QuanLyNhaHang_User.Controllers
         [HttpPost]
         public async Task<IActionResult> Order(ProductOrderPageViewModel productOrderPageViewModel)
         {
-            if (productOrderPageViewModel.OrderInfo.price.HasValue)
+            if (productOrderPageViewModel.OrderInfo.Price.HasValue)
             {
                 var response = await _apiService.AddOrderDetailOnOrder(new RequestOrderDetail
                 {
                     DhId = HttpContext.Session.GetInt32("orderId") ?? 0,
                     ProductId = productOrderPageViewModel.OrderInfo.ProductID,
                     SoLuong = productOrderPageViewModel.OrderInfo.SoLuong,
-                    ThanhTien = productOrderPageViewModel.OrderInfo.price.Value,
+                    ThanhTien = productOrderPageViewModel.OrderInfo.Price.Value,
                     Ghichu = "Ghi chú: " + productOrderPageViewModel.OrderInfo.GhiChu + " , Trạng thái: " + string.Join(", ", productOrderPageViewModel.OrderInfo.Conditions)
                 });
 

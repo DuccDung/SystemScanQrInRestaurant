@@ -66,6 +66,7 @@
                     </div>
                     <!-- Add to order button -->
                     <input type="number" id="order-detail-price" hidden value="@Model.Product.GiaTien">
+                    <input type="number" id="order-detail-total-price" name="OrderInfo.Price" hidden value="@Model.Product.GiaTien">
                     <button type="submit" id="btn-price-total" class="btn btn-secondary btn-lg add-to-order">
                         Add to order <br><span class="small" id="Productdetail-price">(@String.Format("{0:N0}", Model.Product.GiaTien)đ)</span>
                     </button>
@@ -77,62 +78,9 @@
     <div class="overlay-spinner">
         <div class="spinner"></div>
     </div> 
-    @* <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> *@
-    @* <script src="~/asset/js/TotalPrice.js"></script> *@
-    @* <script> *@
-    @*     window.onload = function () { *@
-    @*         document.querySelector('.product-detail').classList.add('active'); *@
-    @*     }; *@
-    @*         document.getElementById('button-plus').addEventListener('click', function () { *@
-    @*             let quantityInput = document.getElementById('quantity'); *@
-    @*             let currentValue = parseInt(quantityInput.value); *@
-    @*             quantityInput.value = currentValue + 1; *@
-    @*             }); *@
-
-    @*         document.getElementById('button-minus').addEventListener('click', function () { *@
-    @*             let quantityInput = document.getElementById('quantity'); *@
-    @*             let currentValue = parseInt(quantityInput.value); *@
-    @*         if (currentValue > 1) {   *@
-    @*             quantityInput.value = currentValue - 1; *@
-    @*                 } *@
-    @*             }); *@
-    @* </script> *@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="~/asset/js/TotalPrice.js"></script>
-    <script>
-        window.onload = function () {
-            document.querySelector('.product-detail').classList.add('active');
-        };
 
-        function updateTotalPrice() {
-            const price = parseFloat(document.getElementById('order-detail-price').value);
-            const quantity = parseInt(document.getElementById('quantity').value);
-            const totalPrice = price * quantity;
-
-            document.getElementById('Productdetail-price').innerText =
-                `(${totalPrice.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })})`;
-        }
-
-        document.getElementById('button-plus').addEventListener('click', function () {
-            let quantityInput = document.getElementById('quantity');
-            let currentValue = parseInt(quantityInput.value);
-            quantityInput.value = currentValue + 1;
-
-            updateTotalPrice(); // ✅ Cập nhật giá
-        });
-
-        document.getElementById('button-minus').addEventListener('click', function () {
-            let quantityInput = document.getElementById('quantity');
-            let currentValue = parseInt(quantityInput.value);
-            if (currentValue > 1) {
-                quantityInput.value = currentValue - 1;
-                updateTotalPrice(); // ✅ Cập nhật giá
-            }
-        });
-
-        // Cập nhật tổng giá nếu user tự gõ số lượng
-        document.getElementById('quantity').addEventListener('input', updateTotalPrice);
-    </script>
 
 </body>
 </html>

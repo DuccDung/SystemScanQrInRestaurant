@@ -40116,8 +40116,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>zr8blzl6vi</Fingerprint>
-      <Integrity>0Y2wIZ7gBczlOK4NhQ2FjtmkVtruTCLqcJGgTtyHIvg=</Integrity>
+      <Fingerprint>r0vg448da9</Fingerprint>
+      <Integrity>9Sojxrr7G4nOT627EjbP+IBKd+4iewegYz3yXAru3UQ=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\asset\js\TotalPrice.js'))</OriginalItemSpec>

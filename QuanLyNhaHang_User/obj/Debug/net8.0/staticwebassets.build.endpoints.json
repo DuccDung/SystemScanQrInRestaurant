@@ -182549,7 +182549,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1425"
+          "Value": "1261"
         },
         {
           "Name": "Content-Type",
@@ -182557,22 +182557,22 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"0Y2wIZ7gBczlOK4NhQ2FjtmkVtruTCLqcJGgTtyHIvg=\""
+          "Value": "\"9Sojxrr7G4nOT627EjbP+IBKd+4iewegYz3yXAru3UQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 01 Jul 2025 15:09:25 GMT"
+          "Value": "Wed, 02 Jul 2025 00:57:34 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-0Y2wIZ7gBczlOK4NhQ2FjtmkVtruTCLqcJGgTtyHIvg="
+          "Value": "sha256-9Sojxrr7G4nOT627EjbP+IBKd+4iewegYz3yXAru3UQ="
         }
       ]
     },
     {
-      "Route": "asset/js/TotalPrice.zr8blzl6vi.js",
+      "Route": "asset/js/TotalPrice.r0vg448da9.js",
       "AssetFile": "asset/js/TotalPrice.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -182586,7 +182586,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1425"
+          "Value": "1261"
         },
         {
           "Name": "Content-Type",
@@ -182594,21 +182594,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"0Y2wIZ7gBczlOK4NhQ2FjtmkVtruTCLqcJGgTtyHIvg=\""
+          "Value": "\"9Sojxrr7G4nOT627EjbP+IBKd+4iewegYz3yXAru3UQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 01 Jul 2025 15:09:25 GMT"
+          "Value": "Wed, 02 Jul 2025 00:57:34 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "zr8blzl6vi"
+          "Value": "r0vg448da9"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-0Y2wIZ7gBczlOK4NhQ2FjtmkVtruTCLqcJGgTtyHIvg="
+          "Value": "sha256-9Sojxrr7G4nOT627EjbP+IBKd+4iewegYz3yXAru3UQ="
         },
         {
           "Name": "label",
